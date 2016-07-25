@@ -7,10 +7,34 @@ app.config.update(
     DEBUG = True,
 )
 
-# controllers
+# Homepage
 @app.route("/")
 def index():
     return render_template('index.html')
+
+
+# 1. Plot Some Data
+@app.route("/counts-by-hour", methods=['GET', 'POST'])
+def countsByHour():
+    return render_template('counts-by-hour.html')
+
+
+# 2. Integrating Live Data
+@app.route("/live-count-boxplot", methods=['GET', 'POST'])
+def liveCountBoxplot():
+    return render_template('live-count-boxplot.html')
+
+
+# 3. Map Some Data
+@app.route("/map-static", methods=['GET', 'POST'])
+def mapStatic():
+    return render_template('map-static.html')
+
+
+# 4. Animate the Plot
+@app.route("/map-animated", methods=['GET', 'POST'])
+def mapAnimated():
+    return render_template('map-animated.html')
 
 # launch
 if __name__ == "__main__":
