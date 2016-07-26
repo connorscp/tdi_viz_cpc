@@ -1,5 +1,10 @@
 import os
+
+from bokeh.charts import Bar
+from bokeh.embed import components
 from flask import Flask, render_template
+import pandas as pd
+
 
 # initialization
 app = Flask(__name__)
@@ -16,7 +21,18 @@ def index():
 # 1. Plot Some Data
 @app.route("/counts-by-hour", methods=['GET', 'POST'])
 def countsByHour():
-    return render_template('counts-by-hour.html')
+	q1_counts_by_hour = pd.read_csv('data/q1_counts_by_hour.csv')
+
+	p1 = Bar(q1_counts_by_hour,
+         label='index',
+         values='vehicle_id',
+         title='Counts by Hour',
+         xlabel='Timeframe',
+         ylabel='Unique Vehicles on Road')
+
+	script, div = components(p)
+	
+    return render_template('counts-by-hour.html', script=script, div=div)
 
 
 # 2. Integrating Live Data
