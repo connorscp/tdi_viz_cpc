@@ -1,5 +1,9 @@
 import os
+
+from bokeh.charts import Bar
+from bokeh.embed import components
 from flask import Flask, render_template
+import pandas as pd
 
 # initialization
 app = Flask(__name__)
