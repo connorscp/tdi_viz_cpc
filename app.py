@@ -20,6 +20,9 @@ def index():
 # 1. Plot Some Data
 @app.route("/counts-by-hour", methods=['GET', 'POST'])
 def countsByHour():
+	q1_counts_by_hour = pd.read_csv('data/q1_counts_by_hour.csv')
+	print q1_counts_by_hour[:10]
+	
     return render_template('counts-by-hour.html')
 
 
