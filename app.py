@@ -31,7 +31,7 @@ def countsByHour():
          ylabel='Unique Vehicles on Road')
 
 	script, div = components(p)
-	
+
     return render_template('counts-by-hour.html', script=script, div=div)
 
 
@@ -53,6 +53,12 @@ def mapAnimated():
     return render_template('map-animated.html')
 
 # launch
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+# if __name__ == "__main__":
+#     port = int(os.environ.get("PORT", 5000))
+#     app.run(host='0.0.0.0', port=port)
+
+if __name__ == '__main__':
+    #app.run(debug=True) # when running locally. Start w/ 127.0.0.1:5000/index
+    #app.run(host='0.0.0.0') # when running on DO. Start w/ vagrant:5000/index
+    #app.run(port=33507) # when on Heroku. Start w/ 
+    app.run(debug=True)
