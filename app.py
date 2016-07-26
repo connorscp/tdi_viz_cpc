@@ -34,7 +34,8 @@ def countsByHour():
 	print script
 	print div
 
-    return render_template('counts-by-hour.html', script=script, div=div)
+    # return render_template('counts-by-hour.html', script=script, div=div)
+    return render_template('counts-by-hour.html')
 
 
 # 2. Integrating Live Data
